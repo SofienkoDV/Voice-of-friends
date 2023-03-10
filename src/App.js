@@ -1,11 +1,13 @@
-import { Button } from "./components";
+import { Button, Block } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary" size="large">
-        Hello World
-      </Button>
+      <Block>
+        <Button type="primary" size="large">
+          Hello World
+        </Button>
+      </Block>
     </div>
   );
 }
