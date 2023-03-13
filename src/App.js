@@ -1,13 +1,12 @@
-import { Button, Block } from "./components";
+import { Auth } from "./pages";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Block>
-        <Button type="primary" size="large">
-          Hello World
-        </Button>
-      </Block>
+    <div className="wrapper">
+      <Routes>
+        <Route path="/" element={<Auth />} />
+      </Routes>
     </div>
   );
 }
