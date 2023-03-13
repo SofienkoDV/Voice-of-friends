@@ -1,4 +1,5 @@
-import { LoginForm } from "../../modules";
+import { LoginForm, RegisterForm } from "../../modules";
+import { Routes, Route } from "react-router-dom";
 
 import "./Auth.scss";
 
@@ -6,7 +7,10 @@ function Auth() {
   return (
     <section className="auth">
       <div className="auth__content">
-        <LoginForm />
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+        </Routes>
       </div>
     </section>
   );
