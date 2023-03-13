@@ -1,4 +1,4 @@
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Form, Input } from "antd";
 import { Button, Block } from "../../../components";
 import { Link } from "react-router-dom";
@@ -23,18 +23,19 @@ function LoginForm() {
           }}
           onFinish={onFinish}
         >
-          <Form.Item name="username">
+          <Form.Item name="email">
             <Input
-              prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              prefix={<MailOutlined className="site-form-item-icon" />}
+              placeholder="Електронна пошта"
               className="login-form__input"
             />
           </Form.Item>
+
           <Form.Item validateStatus="success" hasFeedback name="password">
             <Input
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder="Пароль"
               className="login-form__input"
             />
           </Form.Item>
