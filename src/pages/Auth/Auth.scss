@@ -12,12 +12,14 @@
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 1rem;
+      margin-top: 1rem;
     }
 
     p {
       font-size: 18px;
       font-weight: 400;
       margin-bottom: 2rem;
+      margin-top: 1rem;
     }
   }
 
@@ -32,6 +34,29 @@
   .block {
     width: 360px;
     padding: 50px;
+  }
+
+  &__success-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+    height: 400px;
+
+    h2 {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
+      color: #a0a0a0;
+    }
   }
 }
 
