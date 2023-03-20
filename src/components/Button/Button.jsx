@@ -4,7 +4,6 @@ import { Button as AntButton } from "antd";
 import "./Button.scss";
 
 function Button(props) {
-  console.log(props);
   return (
     <AntButton
       className={classNames("button", props.className, {

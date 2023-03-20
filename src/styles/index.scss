@@ -1,9 +1,12 @@
+@import "~reset-css/reset.css";
+
 html,
 body,
 #root,
 #wrapper {
   height: 100%;
   color: #202020;
+  font-size: 14px;
 }
 
 body {
@@ -32,6 +35,4 @@ select,
 option,
 label {
   font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
 }

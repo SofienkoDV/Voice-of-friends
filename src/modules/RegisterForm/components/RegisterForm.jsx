@@ -8,12 +8,18 @@ import { Link } from "react-router-dom";
 import { Form, Input } from "antd";
 import { Button, Block } from "../../../components";
 
-function RegisterForm() {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
-
+function RegisterForm(props) {
   const success = false;
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    // isSubmitting,
+    // isValid,
+  } = props;
 
   return (
     <>
@@ -28,43 +34,87 @@ function RegisterForm() {
             className="login-form"
             initialValues={{
               remember: true,
+              email: values.email,
+              username: values.username,
+              password: values.password,
+              confirmPassword: values.confirmPassword,
             }}
-            onFinish={onFinish}
+            onFinish={handleSubmit}
           >
-            <Form.Item name="email">
+            <Form.Item
+              name="email"
+              validateStatus={
+                !touched.email ? "" : errors.email ? "error" : "success"
+              }
+              help={!touched.email ? "" : errors.email}
+              hasFeedback
+            >
               <Input
+                id="email"
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Електронна пошта"
                 className="login-form__input"
-              />
-            </Form.Item>
-
-            <Form.Item name="username">
-              <Input
-                prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Ім'я користувача"
-                className="login-form__input"
-              />
-            </Form.Item>
-            <Form.Item validateStatus="success" hasFeedback name="password">
-              <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
-                type="password"
-                placeholder="Пароль"
-                className="login-form__input"
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Form.Item>
 
             <Form.Item
-              validateStatus="success"
+              name="username"
+              validateStatus={
+                !touched.username ? "" : errors.username ? "error" : "success"
+              }
+              help={!touched.username ? "" : errors.username}
               hasFeedback
-              name="repeatPassword"
+            >
+              <Input
+                id="username"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Ім'я користувача"
+                className="login-form__input"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              validateStatus={
+                !touched.password ? "" : errors.password ? "error" : "success"
+              }
+              help={!touched.password ? "" : errors.password}
+              hasFeedback
             >
               <Input
                 prefix={<LockOutlined className="site-form-item-icon" />}
+                id="password"
                 type="password"
-                placeholder="Повторіть пароль"
+                placeholder="Пароль"
                 className="login-form__input"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </Form.Item>
+
+            <Form.Item
+              name="confirmPassword"
+              validateStatus={
+                !touched.confirmPassword
+                  ? ""
+                  : errors.confirmPassword
+                  ? "error"
+                  : "success"
+              }
+              help={!touched.confirmPassword ? "" : errors.confirmPassword}
+              hasFeedback
+            >
+              <Input
+                id="confirmPassword"
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Підтвердіть пароль"
+                className="login-form__input"
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Form.Item>
 
@@ -75,7 +125,7 @@ function RegisterForm() {
             </Form.Item>
 
             <Form.Item>
-              <Link className="login-form__register-link" to="/">
+              <Link className="login-form__register-link" to="/login">
                 Увійти в обліковий запис
               </Link>
             </Form.Item>
