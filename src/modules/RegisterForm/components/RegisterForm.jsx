@@ -7,6 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { Form, Input } from "antd";
 import { Button, Block } from "../../../components";
+import { validateStatus, helpMessage } from "../../../utils/helpers";
 
 function RegisterForm(props) {
   const success = false;
@@ -43,10 +44,8 @@ function RegisterForm(props) {
           >
             <Form.Item
               name="email"
-              validateStatus={
-                !touched.email ? "" : errors.email ? "error" : "success"
-              }
-              help={!touched.email ? "" : errors.email}
+              validateStatus={validateStatus("email", touched, errors)}
+              help={helpMessage("email", touched, errors)}
               hasFeedback
             >
               <Input
@@ -61,10 +60,8 @@ function RegisterForm(props) {
 
             <Form.Item
               name="username"
-              validateStatus={
-                !touched.username ? "" : errors.username ? "error" : "success"
-              }
-              help={!touched.username ? "" : errors.username}
+              validateStatus={validateStatus("username", touched, errors)}
+              help={helpMessage("username", touched, errors)}
               hasFeedback
             >
               <Input
@@ -78,10 +75,8 @@ function RegisterForm(props) {
             </Form.Item>
             <Form.Item
               name="password"
-              validateStatus={
-                !touched.password ? "" : errors.password ? "error" : "success"
-              }
-              help={!touched.password ? "" : errors.password}
+              validateStatus={validateStatus("password", touched, errors)}
+              help={helpMessage("password", touched, errors)}
               hasFeedback
             >
               <Input
@@ -97,14 +92,12 @@ function RegisterForm(props) {
 
             <Form.Item
               name="confirmPassword"
-              validateStatus={
-                !touched.confirmPassword
-                  ? ""
-                  : errors.confirmPassword
-                  ? "error"
-                  : "success"
-              }
-              help={!touched.confirmPassword ? "" : errors.confirmPassword}
+              validateStatus={validateStatus(
+                "confirmPassword",
+                touched,
+                errors
+              )}
+              help={helpMessage("confirmPassword", touched, errors)}
               hasFeedback
             >
               <Input
