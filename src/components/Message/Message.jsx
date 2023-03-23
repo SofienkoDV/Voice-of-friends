@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import readedSvg from "../../assets/img/readed.svg";
+import noReadedSvg from "../../assets/img/noreaded.svg";
 
 import { Time, IconReaded } from "../";
 
@@ -42,7 +44,12 @@ function Message({
                     </div>
                   )}
                 </div>
-                <IconReaded isMe={isMe} isReaded={isReaded} />
+                <div className="message__icon-readed">
+                  <img
+                    src={isReaded ? readedSvg : noReadedSvg}
+                    alt="Readed icon"
+                  />
+                </div>
               </>
             )}
           </div>

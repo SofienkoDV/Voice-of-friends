@@ -1,65 +1,62 @@
-import { Message, DialogItem, Dialogs } from "../../components";
+import { Message, Dialogs } from "../../components";
+
 import "./Home.scss";
 
 function Home() {
   return (
     <section className="home">
       <div className="home__content">
-        <div className="dialogs">
-          <DialogItem
-            user={{
-              fullname: "Аліна Шевченко",
-              isOnline: true,
-            }}
-            message={{
-              text: "Привіт, як справи?",
-              createdAt: new Date(),
-              isReaded: true,
-            }}
-            unreaded={10}
-          />
-          <DialogItem
-            user={{
-              fullname: "Марія Ковальчук",
-              isOnline: false,
-              avatar: "https://i.pravatar.cc/150?img=21",
-            }}
-            message={{
-              text: "Люблю тебе",
-              createdAt: new Date(),
-              isReaded: true,
-            }}
-            unreaded={10}
-          />
-          <DialogItem
-            user={{
-              fullname: "Дмитро Васильєв",
-              isOnline: true,
-              avatar: "https://i.pravatar.cc/150?img=3",
-            }}
-            message={{
-              text: "Привіт, як справи?",
-              createdAt: new Date(),
-              isReaded: false,
-            }}
-            unreaded={1}
-          />
-        </div>
-        {/* <Dialogs
+        <Dialogs
+          userId={0}
           items={[
             {
-              _id: Math.random(),
+              _id: 0,
               user: {
-                fullname: "John Doe",
+                fullname: "Аліса Шевченко",
                 isOnline: true,
+                avatar: "https://i.pravatar.cc/150?img=1",
               },
               message: {
                 text: "Привіт, як справи?",
-                createdAt: new Date(),
+                created_at: new Date("2021-03-11T12:00:00"),
+                isReaded: false,
               },
+              unreaded: 3,
+              isMe: true,
+            },
+            {
+              _id: 1,
+              user: {
+                fullname: "Саша Червоний",
+                isOnline: true,
+                avatar: "https://i.pravatar.cc/150?img=2",
+              },
+              message: {
+                text: "Радий тебе бачити!",
+                created_at: new Date(),
+                isReaded: false,
+              },
+              unreaded: 3,
+              isMe: true,
+            },
+            {
+              _id: 2,
+              user: {
+                fullname: "Кирило Жовтий",
+                isOnline: true,
+                avatar: "https://i.pravatar.cc/150?img=3",
+              },
+              message: {
+                text: "Шо там?",
+                created_at: new Date(),
+                isReaded: false,
+              },
+              unreaded: 3,
+              isMe: true,
             },
           ]}
-        /> */}
+        />
+
         {/* <Message
           avatar="https://i.pravatar.cc/150?img=1"
           // user={{

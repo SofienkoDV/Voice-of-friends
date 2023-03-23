@@ -5,8 +5,8 @@ function App() {
   return (
     <div className="wrapper">
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<Auth />} />
-        <Route path="/im" element={<Home />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,17 @@
 import classNames from "classnames";
-import { Time, IconReaded } from "../";
+import { format } from "date-fns";
+import { IconReaded } from "../";
 import "./DialogItem.scss";
+
+const getFormatDate = (date) => {
+  if (
+    format(new Date(date), "dd.MM.yyyy") === format(new Date(), "dd.MM.yyyy")
+  ) {
+    return format(new Date(date), "HH:mm");
+  } else {
+    return format(new Date(date), "dd.MM.yyyy");
+  }
+};
 
 const getAvatar = (avatar) => {
   if (avatar) {
@@ -10,7 +21,7 @@ const getAvatar = (avatar) => {
   }
 };
 
-function DialogItem({ user, message, unreaded }) {
+function DialogItem({ user, message, unreaded, isMe }) {
   return (
     <>
       <div
@@ -25,10 +36,7 @@ function DialogItem({ user, message, unreaded }) {
         <div className="dialogs__item-info">
           <div className="dialogs__item-info-top">
             <p>{user.fullname}</p>
-            <span>
-              {/* <Time date="Wed Mar 22 2023 22:19:23 GMT+0200" /> */}
-              22:19
-            </span>
+            <span>{getFormatDate(message.created_at)}</span>
           </div>
           <div className="dialogs__item-info-bottom">
             <p>{message.text}</p>
@@ -39,7 +47,7 @@ function DialogItem({ user, message, unreaded }) {
               </div>
             )}
 
-            {message.isReaded && <IconReaded isMe={true} />}
+            {isMe && <IconReaded isMe={isMe} isReaded={message.isReaded} />}
           </div>
         </div>
       </div>
