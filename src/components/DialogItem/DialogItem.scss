@@ -1,0 +1,104 @@
+.dialogs {
+  width: 100%;
+  max-width: 300px;
+
+  &__item {
+    display: flex;
+    padding: 10px 5px;
+
+    cursor: pointer;
+    $item: &;
+
+    &-avatar {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    &--online {
+      #{$item}-avatar {
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          background-color: #4bb34b;
+          border-radius: 50%;
+          border: 2px solid #fff;
+        }
+      }
+    }
+
+    &-info {
+      flex: 1;
+
+      &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 5px;
+
+        p {
+          font-weight: 700;
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+      &-bottom {
+        position: relative;
+        p {
+          font-size: 12px;
+          color: #999;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          max-width: 200px;
+          width: 100%;
+          height: 20px;
+          padding-top: 5px;
+        }
+        &-count {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 18px;
+          height: 18px;
+          background-color: #f46b6b;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 12px;
+          color: #fff;
+        }
+
+        .message__icon-readed {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 18px;
+          height: 18px;
+          background-color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

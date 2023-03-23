@@ -1,9 +1,7 @@
-import { formatDistanceToNow } from "date-fns";
 import PropTypes from "prop-types";
-import uk from "date-fns/locale/uk";
 import classNames from "classnames";
-import readedSvg from "../../assets/img/readed.svg";
-import noReadedSvg from "../../assets/img/noreaded.svg";
+
+import { Time, IconReaded } from "../";
 
 import "./Message.scss";
 
@@ -44,12 +42,7 @@ function Message({
                     </div>
                   )}
                 </div>
-                <div className="message__icon-readed">
-                  <img
-                    src={isReaded ? readedSvg : noReadedSvg}
-                    alt="Readed icon"
-                  />
-                </div>
+                <IconReaded isMe={isMe} isReaded={isReaded} />
               </>
             )}
           </div>
@@ -65,7 +58,7 @@ function Message({
 
           {date && (
             <time className="message__date">
-              {formatDistanceToNow(new Date(date), { locale: uk })}
+              <Time date={date} />
             </time>
           )}
         </div>

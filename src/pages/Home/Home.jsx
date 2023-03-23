@@ -1,11 +1,66 @@
-import { Message } from "../../components";
+import { Message, DialogItem, Dialogs } from "../../components";
 import "./Home.scss";
 
 function Home() {
   return (
     <section className="home">
       <div className="home__content">
-        <Message
+        <div className="dialogs">
+          <DialogItem
+            user={{
+              fullname: "Аліна Шевченко",
+              isOnline: true,
+            }}
+            message={{
+              text: "Привіт, як справи?",
+              createdAt: new Date(),
+              isReaded: true,
+            }}
+            unreaded={10}
+          />
+          <DialogItem
+            user={{
+              fullname: "Марія Ковальчук",
+              isOnline: false,
+              avatar: "https://i.pravatar.cc/150?img=21",
+            }}
+            message={{
+              text: "Люблю тебе",
+              createdAt: new Date(),
+              isReaded: true,
+            }}
+            unreaded={10}
+          />
+          <DialogItem
+            user={{
+              fullname: "Дмитро Васильєв",
+              isOnline: true,
+              avatar: "https://i.pravatar.cc/150?img=3",
+            }}
+            message={{
+              text: "Привіт, як справи?",
+              createdAt: new Date(),
+              isReaded: false,
+            }}
+            unreaded={1}
+          />
+        </div>
+        {/* <Dialogs
+          items={[
+            {
+              _id: Math.random(),
+              user: {
+                fullname: "John Doe",
+                isOnline: true,
+              },
+              message: {
+                text: "Привіт, як справи?",
+                createdAt: new Date(),
+              },
+            },
+          ]}
+        /> */}
+        {/* <Message
           avatar="https://i.pravatar.cc/150?img=1"
           // user={{
           //   fullName: "John Doe",
@@ -62,7 +117,7 @@ function Home() {
             },
           ]}
           isMe={true}
-        />
+        /> */}
       </div>
     </section>
   );
