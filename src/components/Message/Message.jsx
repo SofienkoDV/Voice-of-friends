@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import readedSvg from "../../assets/img/readed.svg";
 import noReadedSvg from "../../assets/img/noreaded.svg";
+import waveSvg from "../../assets/img/wave.svg";
 
 import { Time, IconReaded } from "../";
 
@@ -11,6 +12,7 @@ function Message({
   avatar,
   user,
   date,
+  audio,
   text,
   isMe,
   isReaded,
@@ -23,6 +25,7 @@ function Message({
         "message--isme": isMe,
         "message--is-typing": isTyping,
         "message--image": attachments && attachments.length === 1,
+        "message--is-audio": audio,
       })}
     >
       <div className="message__avatar">
@@ -32,7 +35,7 @@ function Message({
       <div className="message__content">
         <div className="message__user">
           <div className="message__info">
-            {(text || isTyping) && (
+            {(audio || text || isTyping) && (
               <>
                 <div className="message__bubble">
                   {text && <p className="message__text">{text}</p>}
@@ -41,6 +44,20 @@ function Message({
                       <span></span>
                       <span></span>
                       <span></span>
+                    </div>
+                  )}
+                  {audio && (
+                    <div className="message__audio">
+                      <div className="message__audio-progress"></div>
+                      <div className="message__audio-info">
+                        <div className="message__audio-btn">
+                          <button> </button>
+                        </div>
+                        <div className="message__audio-wave">
+                          <img src={waveSvg} alt="Wave svg" />
+                        </div>
+                        <span className="message__audio-duration">00:00</span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -53,15 +70,15 @@ function Message({
               </>
             )}
           </div>
-
-          <div className="message__attachments">
-            {attachments &&
-              attachments.map((item, index) => (
+          {attachments && (
+            <div className="message__attachments">
+              {attachments.map((item, index) => (
                 <div key={index} className="message__attachments-item">
                   <img src={item.url} alt={item.filename} />
                 </div>
               ))}
-          </div>
+            </div>
+          )}
 
           {date && (
             <time className="message__date">
@@ -84,6 +101,14 @@ Message.propTypes = {
   isMe: PropTypes.bool,
   isReaded: PropTypes.bool,
   isTyping: PropTypes.bool,
+  attachments: PropTypes.arrayOf(
+    PropTypes.shape({
+      filename: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    })
+  ),
+
+  audio: PropTypes.string,
 };
 
 Message.defaultProps = {
@@ -95,6 +120,9 @@ Message.defaultProps = {
   text: "",
   isMe: false,
   isReaded: false,
+  isTyping: false,
+  attachments: [],
+  audio: "",
 };
 
 export default Message;

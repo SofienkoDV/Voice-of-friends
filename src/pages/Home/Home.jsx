@@ -115,6 +115,11 @@ function Home() {
           ]}
           isMe={true}
         /> */}
+        <Message
+          avatar="https://i.pravatar.cc/150?img=7"
+          date="Sun Apr 11 2023 15:00:00 GMT+0300"
+          audio="https://notificationsounds.com/soundfiles/3b0b4b5b5b5b5b5b5b5b5b5b5b5b5b5b/file-sounds-1105-just-like-that.mp3"
+        />
       </div>
     </section>
   );
