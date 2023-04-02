@@ -71,6 +71,60 @@
     align-items: flex-end;
   }
 
+  &--is-audio {
+    #{$self}__bubble {
+      width: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #{$self}__audio {
+      &-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      &-btn {
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #0f3997;
+          border: 0;
+          cursor: pointer;
+          outline: none;
+          svg {
+            width: 12px;
+            height: 12px;
+            color: $white;
+          }
+        }
+      }
+
+      &-duration {
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.5;
+      }
+
+      &-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        background-color: $white;
+        opacity: 0.3;
+        transition: width 0.3s linear;
+      }
+    }
+  }
+
   &--isme {
     flex-direction: row-reverse;
 

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { format } from "date-fns";
-import { IconReaded } from "../";
+import { IconReaded, Avatar } from "../";
 import "./DialogItem.scss";
 
 const getFormatDate = (date) => {
@@ -13,14 +13,6 @@ const getFormatDate = (date) => {
   }
 };
 
-const getAvatar = (avatar) => {
-  if (avatar) {
-    return avatar;
-  } else {
-    return "https://i.pravatar.cc/150?img=1";
-  }
-};
-
 function DialogItem({ user, message, unreaded, isMe }) {
   return (
     <>
@@ -30,7 +22,7 @@ function DialogItem({ user, message, unreaded, isMe }) {
         })}
       >
         <div className="dialogs__item-avatar">
-          <img src={getAvatar(user.avatar)} alt={user.fullname} />
+          <img src={Avatar(user)} alt={`Avatar ${user.fullname}`} />
         </div>
 
         <div className="dialogs__item-info">

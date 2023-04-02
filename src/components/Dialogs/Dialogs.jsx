@@ -4,7 +4,6 @@ import { DialogItem } from "../";
 import "./Dialogs.scss";
 
 function Dialogs({ items, userId }) {
-  console.log(items);
   return (
     <div className="dialogs">
       {orderBy(items, ["message.created_at"], ["desc"]).map((item) => (
