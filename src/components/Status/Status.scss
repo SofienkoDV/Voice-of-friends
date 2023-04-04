@@ -1,0 +1,29 @@
+.status {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ccc;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+
+  &--online {
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 0.5rem;
+      border-radius: 50%;
+      background-color: #4bb34b;
+    }
+  }
+}
