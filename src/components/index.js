@@ -6,3 +6,6 @@ export { default as Time } from "./Time/Time";
 export { default as IconReaded } from "./IconReaded/IconReaded";
 export { default as Dialogs } from "./Dialogs/Dialogs";
 export { default as Avatar } from "./Avatar/Avatar";
+export { default as Search } from "./Search/Search";
+export { default as Status } from "./Status/Status";
+export { default as ChatInput } from "./ChatInput/ChatInput";
