@@ -1,0 +1,52 @@
+.chat-input {
+  display: flex;
+  padding: 1rem 10%;
+  border-top: 1px solid #ccc;
+  position: relative;
+
+  &__smile-btn {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+    margin-right: 1rem;
+    margin-top: 0.7rem;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 12%;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+    &-camera {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+      margin-right: 1rem;
+    }
+
+    &-record {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &-send {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+      margin-left: 1rem;
+    }
+  }
+}
