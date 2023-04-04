@@ -20,11 +20,14 @@
     }
 
     &-search {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding: 1rem 1rem 0.5rem 1rem;
     }
 
     &-dialogs {
+      height: calc(100vh - 190px);
+      overflow-y: auto;
+      padding: 0 1rem;
+
       .dialogs {
         &__item {
           transition: background-color 0.2s ease;
@@ -48,7 +51,6 @@
 
     width: 20vw;
     border-right: 1px solid #ccc;
-    padding: 1rem;
     box-sizing: border-box;
   }
 
